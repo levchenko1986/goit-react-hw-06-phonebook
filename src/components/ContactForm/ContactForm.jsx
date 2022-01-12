@@ -11,19 +11,19 @@ function ContactForm() {
   const [stateName, setStateName] = useState("");
   const [stateNumber, setStateNumber] = useState("");
 
-  const handleInputChangeName = (event) => {
-    setStateName(event.target.value);
+  const handleInputChangeName = (e) => {
+    setStateName(e.target.value);
   };
 
-  const handleInputChangeNumber = (event) => {
-    setStateNumber(event.target.value);
+  const handleInputChangeNumber = (e) => {
+    setStateNumber(e.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
     if (
-      contacts.find(
+      contacts.some(
         (contact) => contact.name.toLowerCase() === stateName.toLowerCase()
       )
     ) {
