@@ -11,12 +11,13 @@ function ContactForm() {
   const [stateName, setStateName] = useState("");
   const [stateNumber, setStateNumber] = useState("");
 
-  const handleInputChangeName = (e) => {
-    setStateName(e.target.value);
-  };
-
-  const handleInputChangeNumber = (e) => {
-    setStateNumber(e.target.value);
+  const handleInputChangeNameNumber = (e) => {
+    if (e.target.name === "name") {
+      setStateName(e.target.value);
+    }
+    if (e.target.name === "number") {
+      setStateNumber(e.target.value);
+    }
   };
 
   const handleSubmit = (e) => {
@@ -50,7 +51,7 @@ function ContactForm() {
           name="name"
           pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
           value={stateName}
-          onChange={handleInputChangeName}
+          onChange={handleInputChangeNameNumber}
           placeholder="Name"
           autoComplete="on"
           required
@@ -64,7 +65,7 @@ function ContactForm() {
           name="number"
           pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
           value={stateNumber}
-          onChange={handleInputChangeNumber}
+          onChange={handleInputChangeNameNumber}
           placeholder="Number"
           autoComplete="on"
           required
